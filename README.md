@@ -21,4 +21,5 @@ _Este proyecto fue creado con el framework para aplicaciones moviles flutter des
 ![lista de inicio](https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg =250x250)
 
 - Lista de inicio
+<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="24" width="48">
 ![lista de inicio](https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg =250x250)
