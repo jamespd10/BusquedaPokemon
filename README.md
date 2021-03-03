@@ -11,4 +11,4 @@ _Este proyecto fue creado con el framework para aplicaciones moviles flutter des
 
 ## Capturas
 
-![alt text](https://github.com/jamespd10/BusquedaPokemon/tree/main/capturas/inicio.jpg?raw=true)
+![alt text](https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg)
