@@ -12,13 +12,13 @@ _Este proyecto fue creado con el framework para aplicaciones moviles flutter des
 ## Capturas
 
 - Lista de inicio
-<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="500" width="100">
+<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="600" width="300">
 
-- Lista de inicio
-<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="500" width="100">
+- Busqueda
+<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/resultado.jpg" height="600" width="300">
 
-- Lista de inicio
-<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="500" width="100">
+- Resultado
+<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/nombre1.jpg" height="600" width="300">
 
-- Lista de inicio
-<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/inicio.jpg" height="500" width="100">
+- Resultado
+<img src="https://raw.githubusercontent.com/jamespd10/BusquedaPokemon/main/capturas/nombre2.jpg" height="600" width="300">
