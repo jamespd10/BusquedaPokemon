@@ -159,6 +159,7 @@ class _HomeState extends State<Home> {
       _ultimoItem = _ultimoItem + _limit;
       _agregarPokemon(pokemonAllModelFromJson(_response.toString()));
     } catch (e) {
+      _isLoading.value = false;
     }
   }
 
@@ -166,6 +167,5 @@ class _HomeState extends State<Home> {
     pokemonAllModel.results.forEach((element) {
       _listaCompleta.value = List.from(_listaCompleta.value)..add(element);
     });
-    _isLoading.value = false;
   }
 }
