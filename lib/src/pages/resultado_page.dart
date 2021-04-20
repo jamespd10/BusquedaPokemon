@@ -1,11 +1,17 @@
 import 'package:busquedapokemon/src/model/pokemon_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:busquedapokemon/src/util/capitalize.dart';
 
 class Resultado extends StatefulWidget {
   final String nombre;
+  final Color color;
 
-  const Resultado({Key key, @required this.nombre}) : super(key: key);
+  const Resultado({
+    Key key,
+    @required this.nombre,
+    this.color,
+  }) : super(key: key);
 
   @override
   _ResultadoState createState() => _ResultadoState();
@@ -23,7 +29,7 @@ class _ResultadoState extends State<Resultado> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.nombre}'),
+        title: Text('${widget.nombre.capitalize()}'),
       ),
       body: FutureBuilder(
         future: _pokemon,
@@ -38,8 +44,20 @@ class _ResultadoState extends State<Resultado> {
               children: [
                 Stack(
                   children: [
-                    Card(
+                    Container(
                       margin: EdgeInsets.fromLTRB(10, 100, 10, 20),
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 10.0,
+                            spreadRadius: 1.0,
+                            offset: Offset(2.0, 10.0),
+                          )
+                        ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       child: Padding(
                         padding: EdgeInsets.only(top: 100),
                         child: Column(
@@ -61,7 +79,7 @@ class _ResultadoState extends State<Resultado> {
                                 style: TextStyle(fontSize: 20),
                               ),
                               trailing: Text(
-                                snapshot.data.name,
+                                snapshot.data.name.capitalize(),
                                 style: TextStyle(fontSize: 20),
                               ),
                               onTap: () {},
@@ -113,18 +131,52 @@ class _ResultadoState extends State<Resultado> {
                       child: Container(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          gradient: LinearGradient(
-                            colors: [Colors.blue, Colors.green],
-                            begin: Alignment.bottomLeft,
-                            end: Alignment.topRight,
-                          ),
                         ),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: 100,
-                          child: Image.network(
-                            '${snapshot.data.sprites.frontDefault}',
-                          ),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: Alignment.center,
+                              child: CircleAvatar(
+                                backgroundColor: this.widget.color,
+                                radius: 100,
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child: Image.network(
+                                '${snapshot.data.sprites.frontDefault}',
+                                height: 200,
+                                width: 200,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned.fill(
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Stack(
+                                  children: <Widget>[
+                                    Text(
+                                      this.widget.nombre.capitalize(),
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        foreground: Paint()
+                                          ..style = PaintingStyle.stroke
+                                          ..strokeWidth = 6
+                                          ..color = Colors.blue[700],
+                                      ),
+                                    ),
+                                    Text(
+                                      this.widget.nombre.capitalize(),
+                                      style: TextStyle(
+                                        fontSize: 30,
+                                        color: Colors.yellow,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -159,7 +211,7 @@ class _ResultadoState extends State<Resultado> {
     abilities.forEach((element) {
       _lista
         ..add(ListTile(
-          title: Text(element.ability.name),
+          title: Text(element.ability.name.capitalize()),
         ));
     });
     return _lista;
@@ -170,7 +222,7 @@ class _ResultadoState extends State<Resultado> {
     moves.forEach((element) {
       _lista
         ..add(ListTile(
-          title: Text(element.move.name),
+          title: Text(element.move.name.capitalize()),
         ));
     });
     return _lista;
@@ -181,7 +233,7 @@ class _ResultadoState extends State<Resultado> {
     types.forEach((element) {
       _lista
         ..add(ListTile(
-          title: Text(element.type.name),
+          title: Text(element.type.name.capitalize()),
         ));
     });
     return _lista;
@@ -192,7 +244,7 @@ class _ResultadoState extends State<Resultado> {
     stats.forEach((element) {
       _lista
         ..add(ListTile(
-          title: Text(element.stat.name),
+          title: Text(element.stat.name.capitalize()),
           trailing: Text('${element.baseStat}'),
         ));
     });
