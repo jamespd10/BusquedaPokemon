@@ -1,10 +1,9 @@
 import 'package:busquedapokemon/src/model/pokemon_model.dart';
-import 'package:busquedapokemon/src/pages/resultado_page.dart';
+import 'package:busquedapokemon/src/util/get_search_pokemon.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class SearchData extends SearchDelegate {
-  final List<Color> _colorsPares = [Colors.blue, Colors.green];
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -42,38 +41,7 @@ class SearchData extends SearchDelegate {
         } else if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData &&
             snapshot.data != null) {
-          final String _url =
-              'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
-          final _pokemon = snapshot.data;
-          return ListView(
-            children: [
-              ListTile(
-                leading: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      colors: _colorsPares,
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                    ),
-                  ),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    child: Image.network('$_url${_pokemon.id}.png'),
-                  ),
-                ),
-                title: Text(_pokemon.name),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Resultado(nombre: _pokemon.name),
-                    ),
-                  );
-                },
-              ),
-            ],
-          );
+          return GetSearchPokemon(snapshot.data);
         } else {
           return Center(child: Text('No se encontró resultado'));
         }
